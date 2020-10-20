@@ -361,6 +361,7 @@ class _MyHomePageState extends State<MyHomePage> {
       keyTarget: keyButton5,
       isPaddingFocus: true,
       paddingFocus: 1.5,
+      overlayBackgroundAlignment: Alignment.bottomLeft,
       contents: [
         ContentTarget(
             align: AlignContent.bottom,
@@ -404,6 +405,7 @@ class _MyHomePageState extends State<MyHomePage> {
       keyTarget: keyButton6,
       isPaddingFocus: true,
       paddingFocus: 4,
+      overlayBackgroundAlignment: Alignment.bottomLeft,
       contents: [
         ContentTarget(
             align: AlignContent.bottom,

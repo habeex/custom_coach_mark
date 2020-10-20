@@ -75,7 +75,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
             },
           ),
           Align(
-            alignment: Alignment.topRight,
+            alignment: currentTarget.overlayBackgroundAlignment,
             child: AnimatedOpacity(
               opacity: showContent ? 1 : 0,
               duration: Duration(milliseconds: 200),

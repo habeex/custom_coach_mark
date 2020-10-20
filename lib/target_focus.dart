@@ -16,6 +16,7 @@ class TargetFocus {
     this.enableTargetTab = true,
     this.paddingFocus = 10,
     this.isPaddingFocus = false,
+    this.overlayBackgroundAlignment = Alignment.topRight,
 
   }) : assert(keyTarget != null || targetPosition != null);
 
@@ -30,6 +31,7 @@ class TargetFocus {
   final Color color;
   final double paddingFocus;
   final bool isPaddingFocus;
+  final Alignment overlayBackgroundAlignment;
 
   @override
   String toString() {
