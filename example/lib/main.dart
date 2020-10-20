@@ -452,7 +452,7 @@ class _MyHomePageState extends State<MyHomePage> {
         colorShadow: Colors.red,
         textSkip: "SKIP",
         paddingFocus: 30,
-        overlayBackground: Icon(Icons.map, size: 500, color: Colors.grey,),
+        overlayBackground: Icon(Icons.map, size: 500, color: Colors.white10,),
         opacityShadow: 0.8, onFinish: () {
       print("finish");
     }, onClickTarget: (target) {

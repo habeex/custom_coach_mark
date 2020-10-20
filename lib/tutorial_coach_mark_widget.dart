@@ -52,11 +52,6 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
       child: Stack(
         children: <Widget>[
           widget.overlayBackground == null ? Container() :
-          AnimatedOpacity(
-            opacity: showContent ? 1 : 0,
-            duration: Duration(milliseconds: 200),
-            child: widget.overlayBackground,
-          ),
           AnimatedFocusLight(
             key: _focusLightKey,
             targets: widget.targets,
@@ -78,6 +73,14 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
                 showContent = false;
               });
             },
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: AnimatedOpacity(
+              opacity: showContent ? 1 : 0,
+              duration: Duration(milliseconds: 200),
+              child: widget.overlayBackground,
+            ),
           ),
           AnimatedOpacity(
             opacity: showContent ? 1 : 0,
