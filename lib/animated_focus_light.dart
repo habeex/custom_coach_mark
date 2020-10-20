@@ -68,7 +68,7 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
 
     _controllerPulse = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: 400),
     );
 
     _tweenPulse = Tween(begin: 1.0, end: 0.99).animate(

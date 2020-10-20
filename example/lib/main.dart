@@ -363,7 +363,7 @@ class _MyHomePageState extends State<MyHomePage> {
       paddingFocus: 1.5,
       contents: [
         ContentTarget(
-            align: AlignContent.top,
+            align: AlignContent.bottom,
             child: Container(
               child: Column(
                 children: <Widget>[
@@ -406,7 +406,7 @@ class _MyHomePageState extends State<MyHomePage> {
       paddingFocus: 4,
       contents: [
         ContentTarget(
-            align: AlignContent.top,
+            align: AlignContent.bottom,
             child: Container(
               child: Column(
                 children: <Widget>[

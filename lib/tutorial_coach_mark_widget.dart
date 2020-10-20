@@ -54,7 +54,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
           widget.overlayBackground == null ? Container() :
           AnimatedOpacity(
             opacity: showContent ? 1 : 0,
-            duration: Duration(milliseconds: 300),
+            duration: Duration(milliseconds: 200),
             child: widget.overlayBackground,
           ),
           AnimatedFocusLight(
@@ -81,7 +81,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
           ),
           AnimatedOpacity(
             opacity: showContent ? 1 : 0,
-            duration: Duration(milliseconds: 300),
+            duration: Duration(milliseconds: 200),
             child: _buildContents(),
           ),
           _buildSkip()
@@ -198,7 +198,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
       child: SafeArea(
         child: AnimatedOpacity(
           opacity: showContent ? 1 : 0,
-          duration: Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 200),
           child: InkWell(
             onTap: widget.clickSkip,
             child: Padding(
