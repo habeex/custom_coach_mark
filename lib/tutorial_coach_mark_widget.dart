@@ -19,6 +19,8 @@ class TutorialCoachMarkWidget extends StatefulWidget {
     this.opacityShadow = 0.8,
     this.textStyleSkip = const TextStyle(color: Colors.white),
     this.hideSkip,
+    this.overlayBackground,
+
   }) : super(key: key);
 
   final List<TargetFocus> targets;
@@ -32,6 +34,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final String textSkip;
   final TextStyle textStyleSkip;
   final bool hideSkip;
+  final Widget overlayBackground;
 
   @override
   TutorialCoachMarkWidgetState createState() => TutorialCoachMarkWidgetState();
@@ -48,6 +51,12 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget> {
       color: Colors.transparent,
       child: Stack(
         children: <Widget>[
+          widget.overlayBackground == null ? Container() :
+          AnimatedOpacity(
+            opacity: showContent ? 1 : 0,
+            duration: Duration(milliseconds: 300),
+            child: widget.overlayBackground,
+          ),
           AnimatedFocusLight(
             key: _focusLightKey,
             targets: widget.targets,

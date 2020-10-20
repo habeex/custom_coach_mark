@@ -14,6 +14,9 @@ class TargetFocus {
     this.color,
     this.enableOverlayTab = false,
     this.enableTargetTab = true,
+    this.paddingFocus = 10,
+    this.isPaddingFocus = false,
+
   }) : assert(keyTarget != null || targetPosition != null);
 
   final dynamic identify;
@@ -25,6 +28,8 @@ class TargetFocus {
   final bool enableOverlayTab;
   final bool enableTargetTab;
   final Color color;
+  final double paddingFocus;
+  final bool isPaddingFocus;
 
   @override
   String toString() {

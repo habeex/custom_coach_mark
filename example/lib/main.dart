@@ -33,6 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   GlobalKey keyButton3 = GlobalKey();
   GlobalKey keyButton4 = GlobalKey();
   GlobalKey keyButton5 = GlobalKey();
+  GlobalKey keyButton6 = GlobalKey();
+
+  int selectedIndex = 0;
 
   @override
   void initState() {
@@ -47,7 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            key: keyButton1,
+            key: keyButton5,
+            icon: Icon(Icons.add),
+            onPressed: () {},
+          ),
+          IconButton(
+            key: keyButton6,
             icon: Icon(Icons.add),
             onPressed: () {},
           )
@@ -85,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 50,
                 height: 50,
                 child: RaisedButton(
-                  key: keyButton2,
+//                  key: keyButton2,
                   onPressed: () {},
                 ),
               ),
@@ -98,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 50,
                   height: 50,
                   child: RaisedButton(
-                    key: keyButton3,
+//                    key: keyButton3,
                     onPressed: () {},
                   ),
                 ),
@@ -112,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 50,
                   height: 50,
                   child: RaisedButton(
-                    key: keyButton4,
+//                    key: keyButton4,
                     onPressed: () {},
                   ),
                 ),
@@ -126,7 +134,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 50,
                   height: 50,
                   child: RaisedButton(
-                    key: keyButton5,
                     onPressed: () {},
                   ),
                 ),
@@ -135,162 +142,137 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: _bottomNavigationBar(context),
     );
   }
 
+  Widget _bottomNavigationBar(BuildContext context) {
+
+    return BottomNavigationBar(
+      backgroundColor: Colors.blue,
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          backgroundColor: Colors.blue,
+          icon: Icon(Icons.home, key: keyButton1,),
+          title: Text(
+            'Hangouts',
+          ),
+        ),
+        BottomNavigationBarItem(
+          backgroundColor: Colors.blue,
+          icon: Icon(Icons.insert_invitation, key: keyButton2,),
+          title: Text(
+            'Invitations',
+          ),
+        ),
+
+        BottomNavigationBarItem(
+          backgroundColor: Colors.blue,
+          icon: Icon(Icons.calendar_today, key: keyButton3,),
+          //  ImageIcon(AssetImage("assets/images/my_events.svg")),
+          title: Text(
+            'My Calendar',
+          ),
+        ),
+
+        BottomNavigationBarItem(
+          backgroundColor: Colors.blue,
+          icon: Icon(Icons.supervised_user_circle, key: keyButton4),
+          title: Text(
+            "Habeeb",
+          ),
+        ),
+      ],
+          currentIndex: selectedIndex,
+    showUnselectedLabels: true,
+      onTap: _onBottomNavigationBarItemItemTapped,
+    );
+  }
+
+  void _onBottomNavigationBarItemItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
   void initTargets() {
-    targets.add(
-      TargetFocus(
-        identify: "Target 0",
-        keyTarget: keyButton1,
-        contents: [
-          ContentTarget(
-              align: AlignContent.bottom,
-              child: Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Titulo lorem ipsum",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
-              ))
-        ],
-      ),
-    );
-    targets.add(
-      TargetFocus(
-        identify: "Target 1",
-        keyTarget: keyButton,
-        color: Colors.purple,
-        contents: [
-          ContentTarget(
-              align: AlignContent.bottom,
-              child: Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Titulo lorem ipsum",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
-              ))
-        ],
-        shape: ShapeLightFocus.RRect,
-        radius: 5,
-      ),
-    );
     targets.add(TargetFocus(
-      identify: "Target 2",
-      keyTarget: keyButton4,
+      identify: "Target 4",
+      keyTarget: keyButton1,
       contents: [
-        ContentTarget(
-            align: AlignContent.left,
-            child: Container(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Multiples content",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20.0),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
-                ],
-              ),
-            )),
         ContentTarget(
             align: AlignContent.top,
             child: Container(
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Multiples content",
+                    "Image Load network",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
                         fontSize: 20.0),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                      style: TextStyle(color: Colors.white),
+                  Text(
+                    "See who has invited you to their hangout or huddle",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      tutorialCoachMark.previous();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Image.network(
+                        "https://juststickers.in/wp-content/uploads/2019/01/flutter.png",
+                        height: 250,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ))
       ],
-      shape: ShapeLightFocus.RRect,
+      shape: ShapeLightFocus.Circle,
     ));
     targets.add(TargetFocus(
-      identify: "Target 3",
-      keyTarget: keyButton5,
+      identify: "Target 4",
+      keyTarget: keyButton2,
       contents: [
         ContentTarget(
-            align: AlignContent.right,
+            align: AlignContent.top,
             child: Container(
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    "Title lorem ipsum",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20.0),
+                  InkWell(
+                    onTap: () {
+                      tutorialCoachMark.previous();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Image.network(
+                        "https://juststickers.in/wp-content/uploads/2019/01/flutter.png",
+                        height: 200,
+                      ),
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(bottom: 20.0),
                     child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                      style: TextStyle(color: Colors.white),
+                      "Image Load network",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0),
                     ),
-                  )
+                  ),
+                  Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             ))
       ],
-      shape: ShapeLightFocus.RRect,
+      shape: ShapeLightFocus.Circle,
     ));
     targets.add(TargetFocus(
       identify: "Target 4",
@@ -334,19 +316,30 @@ class _MyHomePageState extends State<MyHomePage> {
       shape: ShapeLightFocus.Circle,
     ));
     targets.add(TargetFocus(
-      identify: "Target 5",
-      keyTarget: keyButton2,
+      identify: "Target 4",
+      keyTarget: keyButton4,
       contents: [
         ContentTarget(
             align: AlignContent.top,
             child: Container(
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      tutorialCoachMark.previous();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Image.network(
+                        "https://juststickers.in/wp-content/uploads/2019/01/flutter.png",
+                        height: 200,
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: Text(
-                      "Multiples contents",
+                      "Image Load network",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -359,45 +352,111 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-            )),
-        ContentTarget(
-            align: AlignContent.bottom,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: Text(
-                    "Multiples contents",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
             ))
       ],
       shape: ShapeLightFocus.Circle,
     ));
+    targets.add(TargetFocus(
+      identify: "Target 4",
+      keyTarget: keyButton5,
+      isPaddingFocus: true,
+      paddingFocus: 1.5,
+      contents: [
+        ContentTarget(
+            align: AlignContent.top,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      tutorialCoachMark.previous();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Image.network(
+                        "https://juststickers.in/wp-content/uploads/2019/01/flutter.png",
+                        height: 200,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Text(
+                      "Image Load network",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0),
+                    ),
+                  ),
+                  Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ))
+      ],
+      shape: ShapeLightFocus.Circle,
+    ));
+    targets.add(TargetFocus(
+      identify: "Target 4",
+      keyTarget: keyButton6,
+      isPaddingFocus: true,
+      paddingFocus: 4,
+      contents: [
+        ContentTarget(
+            align: AlignContent.top,
+            child: Container(
+              child: Column(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      tutorialCoachMark.previous();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Image.network(
+                        "https://juststickers.in/wp-content/uploads/2019/01/flutter.png",
+                        height: 200,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Text(
+                      "Image Load network",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0),
+                    ),
+                  ),
+                  Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ))
+      ],
+      shape: ShapeLightFocus.Circle,
+    ));
+
   }
 
   void showTutorial() {
     tutorialCoachMark = TutorialCoachMark(context,
         targets: targets,
+        alignSkip: Alignment.topLeft,
         colorShadow: Colors.red,
         textSkip: "SKIP",
-        paddingFocus: 10,
+        paddingFocus: 30,
+        overlayBackground: Icon(Icons.map, size: 500, color: Colors.grey,),
         opacityShadow: 0.8, onFinish: () {
       print("finish");
     }, onClickTarget: (target) {
-      print(target);
+//      print(target);
     }, onClickSkip: () {
       print("skip");
     })

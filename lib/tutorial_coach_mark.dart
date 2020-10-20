@@ -20,6 +20,7 @@ class TutorialCoachMark {
   final bool hideSkip;
   final Color colorShadow;
   final double opacityShadow;
+  final Widget overlayBackground;
   final GlobalKey<TutorialCoachMarkWidgetState> _widgetKey = GlobalKey();
 
   OverlayEntry _overlayEntry;
@@ -37,6 +38,7 @@ class TutorialCoachMark {
     this.textStyleSkip = const TextStyle(color: Colors.white),
     this.hideSkip = false,
     this.opacityShadow = 0.8,
+    this.overlayBackground
   }) : assert(targets != null, opacityShadow >= 0 && opacityShadow <= 1);
 
   OverlayEntry _buildOverlay() {
@@ -54,6 +56,7 @@ class TutorialCoachMark {
         colorShadow: colorShadow,
         opacityShadow: opacityShadow,
         finish: finish,
+        overlayBackground: overlayBackground,
       );
     });
   }

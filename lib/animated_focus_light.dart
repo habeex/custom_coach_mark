@@ -14,11 +14,11 @@ class AnimatedFocusLight extends StatefulWidget {
   final Function(TargetFocus) clickTarget;
   final Function removeFocus;
   final Function() finish;
-  final double paddingFocus;
+  double paddingFocus;
   final Color colorShadow;
   final double opacityShadow;
 
-  const AnimatedFocusLight({
+  AnimatedFocusLight({
     Key key,
     this.targets,
     this.focus,
@@ -55,6 +55,7 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
   @override
   void initState() {
     _targetFocus = widget?.targets[_currentFocus];
+
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 600),
@@ -170,6 +171,7 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
 
     setState(() {
       _finishFocus = false;
+      if(_targetFocus.isPaddingFocus) widget.paddingFocus = _targetFocus.paddingFocus;
       this._targetPosition = targetPosition;
 
       _positioned = Offset(
@@ -244,7 +246,7 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
     }
   }
 
-  CustomPainter _getPainter(TargetFocus target) {
+  CustomPainter  _getPainter(TargetFocus target) {
     if (target?.shape == ShapeLightFocus.RRect) {
       return LightPaintRect(
         colorShadow: target?.color ?? widget.colorShadow,
