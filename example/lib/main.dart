@@ -212,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 20.0),
                   ),
                   Text(
-                    "See who has invited you to their hangout or huddle",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar tortor eget maximus iaculis.",
                     style: TextStyle(color: Colors.white),
                   ),
                   InkWell(
